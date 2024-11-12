@@ -16,8 +16,9 @@ def run():
     Run the crew.
     """
     inputs = {
-        'query': 'AI LLMs'
+    "query": "average customer order cost"
     }
+
     SqlAgent().crew().kickoff(inputs=inputs)
 
 

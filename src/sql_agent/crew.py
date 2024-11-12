@@ -1,6 +1,6 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-
+from sql_agent.tools.custom_tool import check_sql,list_tables,tables_schema,execute_sql
 # Uncomment the following line to use an example of a custom tool
 # from sql_agent.tools.custom_tool import MyCustomTool
 
@@ -20,7 +20,8 @@ class SqlAgent():
 			config=self.agents_config['sql_dev'],
 			allow_delegation=False,
 			# tools=[MyCustomTool()], # Example of custom tool, loaded on the beginning of file
-			verbose=True
+			verbose=True,
+			tools=[list_tables,tables_schema,execute_sql,check_sql]
 		)
 
 	@agent
@@ -56,7 +57,7 @@ class SqlAgent():
 		return Task(
 			config=self.tasks_config['write_report'],
 			#context=[self.analyze_data],
-			#output_file="report.md"
+			output_file="report.md"
 		)
 	@crew
 	def crew(self) -> Crew:
