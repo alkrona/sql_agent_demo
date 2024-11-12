@@ -15,33 +15,49 @@ class SqlAgent():
 	tasks_config = 'config/tasks.yaml'
 
 	@agent
-	def researcher(self) -> Agent:
+	def sql_dev(self) -> Agent:
 		return Agent(
-			config=self.agents_config['researcher'],
+			config=self.agents_config['sql_dev'],
+			allow_delegation=False,
 			# tools=[MyCustomTool()], # Example of custom tool, loaded on the beginning of file
 			verbose=True
 		)
 
 	@agent
-	def reporting_analyst(self) -> Agent:
+	def data_analyst(self) -> Agent:
 		return Agent(
-			config=self.agents_config['reporting_analyst'],
+			config=self.agents_config['data_analyst'],
+			allow_delegation=False,
+			verbose=True
+		)
+	@agent
+	def report_writer(self) -> Agent:
+		return Agent(
+			config=self.agents_config['report_writer'],
+			allow_delegation=False,
 			verbose=True
 		)
 
 	@task
-	def research_task(self) -> Task:
+	def extract_data(self) -> Task:
 		return Task(
-			config=self.tasks_config['research_task'],
+			config=self.tasks_config['extract_data'],
 		)
 
 	@task
-	def reporting_task(self) -> Task:
+	def analyze_data(self) -> Task:
 		return Task(
-			config=self.tasks_config['reporting_task'],
-			output_file='report.md'
+			config=self.tasks_config['analyze_data'],
+			#context=[self.extract_data]
 		)
 
+	@task
+	def write_report(self) -> Task:
+		return Task(
+			config=self.tasks_config['write_report'],
+			#context=[self.analyze_data],
+			#output_file="report.md"
+		)
 	@crew
 	def crew(self) -> Crew:
 		"""Creates the SqlAgent crew"""
