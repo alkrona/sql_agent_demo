@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 import sys
 import warnings
+import os
+import os
 
+from langtrace_python_sdk import langtrace # Must precede any llm module imports
+langtrace.init(api_key = os.environ['LANGTRACE_API_KEY'])
 from sql_agent.crew import SqlAgent
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
@@ -18,7 +22,7 @@ def run():
     inputs = {
     "query": "average customer order cost"
     }
-
+    
     SqlAgent().crew().kickoff(inputs=inputs)
 
 
