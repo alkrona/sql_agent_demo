@@ -1,10 +1,13 @@
-# Executive Summary
+# Executive Summary 
 
-- **Average Customer Order Cost**: $154.10, reflecting mean expenditure per transaction.
-- **Calculation Method**: Total Revenue ÷ Total Orders, capturing customer spending insights.
-- **Comparative Analysis**: Essential to track trends against historical data and industry benchmarks.
-- **Influencing Factors**: Include product pricing, promotions, and customer segmentation strategies.
-- **Business Strategy Implications**: Focus on bundling, targeted promotions, and personalized marketing to boost order costs.
-- **Future Projections**: Continuous monitoring with predictive analytics will inform revenue forecasts and enhance decision-making. 
+This report analyzes key tables in a relational database essential for organizational operations:
 
-Regular analysis of this metric is key to optimizing customer engagement and driving growth.
+- **Animal-related Tables**: `animal_breeds`, `animal_species`, `livestock_batches`, `livestock_suppliers`.
+- **Customer and Sales Management**: `customers`, `orders`, `order_items`, `product_categories`, `products`.
+- **Operational Structure**: `departments`, `employees`, `production_activities`, `production_lines`, `production_schedules`, `production_stages`.
+- **Inventory and Equipment**: `inventory`, `equipment`, `maintenance_logs`, `storage_locations`.
+- **Quality Control**: `quality_checks`, `quality_parameters`.
+- **Waste Management**: `waste_categories`, `waste_records`.
+- **Suppliers and Facilities**: `suppliers`, `facilities`, `vehicles`, `inspection_points`.
+
+Each table enhances insights into efficiency, inventory, and productivity, supporting informed decision-making processes.

@@ -25,9 +25,9 @@ from langchain_community.tools.sql_database.tool import (
     QuerySQLDataBaseTool,
 )
 from langchain_community.utilities.sql_database import SQLDatabase
-import sqlite3
+
 from crewai_tools import tool
-db = SQLDatabase.from_uri("sqlite:////Users/bijubiju/Desktop/databases/brazil_sales/brazil.db")
+db = SQLDatabase.from_uri("postgresql://postgres:postgres@localhost:5432/fakedata")
 @tool("list_tables")
 def list_tables() -> str:
     """List the available tables in the database"""
