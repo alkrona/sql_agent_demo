@@ -27,7 +27,12 @@ from langchain_community.tools.sql_database.tool import (
 from langchain_community.utilities.sql_database import SQLDatabase
 
 from crewai_tools import tool
-db = SQLDatabase.from_uri("postgresql://postgres:postgres@localhost:5432/fakedata")
+import os
+server = os.environ["AZURE_SERVER"]
+database = os.environ["AZURE_DATABASE"]
+username = os.environ["AZURE_USERNAME"]
+password = os.environ["AZURE_PASSWORD"]
+db = SQLDatabase.from_uri(f"mssql+pyodbc://{username}:{password}@{server}/{database}?driver=ODBC+Driver+17+for+SQL+Server")
 @tool("list_tables")
 def list_tables() -> str:
     """List the available tables in the database"""
