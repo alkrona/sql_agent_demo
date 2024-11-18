@@ -3,10 +3,21 @@ import sys
 import warnings
 import os
 import os
-
+from dotenv import load_dotenv
+load_dotenv()
+from fastapi import FastAPI, BackgroundTasks
+from fastapi.middleware.cors import CORSMiddleware
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 #from langtrace_python_sdk import langtrace # Must precede any llm module imports
 #langtrace.init(api_key = os.environ['LANGTRACE_API_KEY'])
-from sql_agent.crew import SqlAgent
+from crew import SqlAgent
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -15,16 +26,16 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 # Replace with inputs you want to test with, it will automatically
 # interpolate any tasks and agents information
 
-def run():
+def run(query):
     """
     Run the crew.
     """
     inputs = {
-    "query": "list all the table names"
+    "query": query
     }
     
-    SqlAgent().crew().kickoff(inputs=inputs)
-
+    result=SqlAgent().crew().kickoff(inputs=inputs)
+    return result
 
 def train():
     """
@@ -61,3 +72,15 @@ def test():
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
+#result = run()
+#print(result)
+def temp_func(query:str):
+    pass
+@app.get("/")
+async def hello():
+    
+    return {"message":"working"}
+@app.post("/sent_query/{query}")
+async def send_notification(query:str):
+    result = run(query=query)
+    return {"message":result}

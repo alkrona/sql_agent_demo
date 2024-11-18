@@ -1,6 +1,6 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from sql_agent.tools.custom_tool import check_sql,list_tables,tables_schema,execute_sql
+from tools.custom_tool import check_sql,list_tables,tables_schema,execute_sql
 # Uncomment the following line to use an example of a custom tool
 # from sql_agent.tools.custom_tool import MyCustomTool
 

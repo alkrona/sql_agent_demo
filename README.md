@@ -48,4 +48,5 @@ The sql_agent Crew is composed of multiple AI agents, each with unique roles, go
 
 -[PostgresDB to SQL server migration](https://www.mssqltips.com/sqlservertip/2619/export-data-from-postgres-to-sql-server-using-ssis/)
 
+-[Fast Api for crew AI setup](https://www.youtube.com/watch?v=pFZHpFuzcBE)
 
