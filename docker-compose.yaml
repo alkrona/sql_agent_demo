@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  sqlagent-api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: sqlagent-api
+    ports:
+      - "80:80"
+    environment:
+      - DATABASE_URL=postgresql://postgres:yalla@postgres:5432/property_data
+    networks:
+      - sql-agent-network
+
+networks:
+  sql-agent-network:
+    external: true  # This tells Docker to use the existing network
