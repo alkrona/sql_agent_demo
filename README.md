@@ -50,3 +50,6 @@ The sql_agent Crew is composed of multiple AI agents, each with unique roles, go
 
 -[Fast Api for crew AI setup](https://www.youtube.com/watch?v=pFZHpFuzcBE)
 
+-[Azure Container Apps for Container deployment](https://www.youtube.com/watch?v=2q_EA98kDGg)
+
+-[Docker configuration on VM](https://knowledgebase.aridhia.io/workspaces/analysing-data/virtual-machines/installing-software-on-virtual-machines/installing-docker-on-your-virtual-machine)
