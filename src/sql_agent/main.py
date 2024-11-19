@@ -5,7 +5,8 @@ import os
 import os
 from dotenv import load_dotenv
 load_dotenv()
-from fastapi import FastAPI, BackgroundTasks
+from fastapi import FastAPI
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 app.add_middleware(
@@ -82,5 +83,13 @@ async def hello():
     return {"message":"working"}
 @app.post("/sent_query/{query}")
 async def send_notification(query:str):
-    result = run(query=query)
-    return {"message":result}
+    _ = run(query=query)
+    file_path = './report.md'
+    if os.path.exists(file_path):
+        return FileResponse(
+            file_path,
+            media_type="text/markdown",
+            filename="report.md"
+        )
+    else:
+        return {"error": "File not found"}
