@@ -1,14 +1,15 @@
-# Executive Summary
+```markdown
+## Executive Summary
 
-The analysis of the database reveals a well-structured system comprising 27 tables, each serving critical functions in the organization:
+The analysis of the database reveals seven distinct tables crucial for understanding animal husbandry data:
 
-- **Animal Breeds & Species**: Supports livestock management and regulatory compliance.
-- **Customers & Orders**: Enhances targeted marketing and sales management.
-- **Departments & Employees**: Facilitates HR functions and organizational clarity.
-- **Equipment & Maintenance Logs**: Ensures operational efficiency through record-keeping.
-- **Inventory & Product Categories**: Optimizes stock management and shopping experiences.
-- **Production & Quality**: Monitors activities and standards, promoting productivity and compliance.
-- **Suppliers & Logistics**: Streamlines procurement and supply chain processes.
-- **Waste Management**: Supports environmental compliance.
+1. **animal_breeds**: Details different animal breeds and their characteristics.
+2. **animal_species**: Categorizes animals by species for hierarchical classification.
+3. **full_property_data**: Encompasses ownership, location, and environmental factors affecting animals.
+4. **livestock_batches**: Tracks specific groupings of livestock, including health and breeding information.
+5. **livestock_suppliers**: Contains contact and schedule information about livestock suppliers.
+6. **post_2021_property_data**: Captures property data collected after 2021, reflecting recent developments.
+7. **suppliers**: Lists all suppliers related to the livestock industry, providing supply chain insights.
 
-The system fosters data-driven decision-making, operational efficiency, and strategic planning.
+This structured database enables comprehensive analysis of animal husbandry and livestock management.
+```cd 
