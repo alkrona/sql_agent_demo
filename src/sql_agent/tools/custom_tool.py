@@ -34,7 +34,7 @@ server = os.environ["AZURE_SERVER"]
 database = os.environ["AZURE_DATABASE"]
 username = os.environ["AZURE_USERNAME"]
 password = os.environ["AZURE_PASSWORD"]
-db = SQLDatabase.from_uri(f"mssql+pyodbc://{username}:{password}@{server}/{database}?driver=ODBC+Driver+17+for+SQL+Server")
+db = SQLDatabase.from_uri(f"mssql+pyodbc://{username}:{password}@{server}/{database}?driver=ODBC+Driver+18+for+SQL+Server")
 #db=SQLDatabase.from_uri("postgresql+psycopg2://postgres:yalla@postgres:5432/property_data")
 #db ="pass"
 @tool("list_tables")

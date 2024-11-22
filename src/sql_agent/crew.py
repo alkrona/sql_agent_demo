@@ -14,6 +14,10 @@ class SqlAgent():
 	agents_config = 'config/agents.yaml'
 	tasks_config = 'config/tasks.yaml'
 
+	def setdb(self,db_name:str)->'SqlAgent':
+		self.db_name = db_name
+		
+		return self
 	@agent
 	def sql_dev(self) -> Agent:
 		return Agent(
