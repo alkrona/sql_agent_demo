@@ -35,7 +35,8 @@ def run(query):
     "query": query
     }
     
-    result=SqlAgent().crew().kickoff(inputs=inputs)
+    dick = SqlAgent().setdb("azure")
+    result=dick.crew().kickoff(inputs=inputs)
     return result
 
 def train():
@@ -93,3 +94,5 @@ async def send_notification(query:str):
         )
     else:
         return {"error": "File not found"}
+if __name__ =="__main__":
+    run("list all the tables")
